@@ -97,9 +97,20 @@
     Let's see that do our basis functions do have that property or not. What do we know
     $$ \int_{-\infty}^{+\infty} sin(mx)cos(nx) = 0  \hspace{5mm} when \hspace{2mm} m \neq n $$
     </p>
-
-
-
+    
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    So, fromm above equation we can infer that our discrete multiple frequencies are redundant in the sense that any component in one frequency does not describe any component in other frequency.
+    </p>
+    
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    Lastly, we want completeness. So, basically we want to measure how accurately these atoms i.e sin(nw) and cos(nw) can describe a function. It turns out that error between the real function and the function aprroximation using these atoms goes to zero when n goes to inifinity. $$ error = | f(x) - (\sum_{n=0}^{\infty}a_nsin(nx)+b_ncos(nx))| --> 0 $$
+    </p>
+    
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    Thus, we have a series that can approximate almost any periodic function. $$ f(x) = \sum_{n=0}^{\infty}a_nsin(nx)+b_ncos(nx) $$
+    </p>
+    
+        
 
 </div>
 
