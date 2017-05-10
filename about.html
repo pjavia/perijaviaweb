@@ -20,14 +20,159 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
-
-
+<!--
+<style>
+#bgabt{
+background: url(abt.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+</style>
+-->
 <body>
+
+
 <div class="jumbotron" >
     <h1 class="title" align = "center" style = "color:#4C4E47">about me
     </h1>
 </div>
+    
+<div id="pieChart" style="position:absolute; left:10px; top: 200px;"></div>
+<p class="h1" style="position:absolute; left:800px; top: 230px;  color:#5E6357;">Peri Javia</p>
+<div style="position:absolute; left:800px; top: 290px;  color:#5E6357; width: 300px; text-align: justify; font-size: 18px;">I play piano, flute, draw potraits and also feel that mathematical equations are artistic strokes on canvas of reality. I want to understand everything with utmost mathematical concreteness and correctness.</div>
+    
+</p>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
+<script src="d3pie.min.js"></script>
+<script>
+var pie = new d3pie("pieChart", {
+	"header": {
+		"title": {
+			"text": "Areas of Interests",
+			"fontSize": 22,
+			"font": "courier"
+		},
+		"subtitle": {
+			"text": "ranks",
+			"color": "#999999",
+			"fontSize": 10,
+			"font": "courier"
+		},
+		"location": "pie-center",
+		"titleSubtitlePadding": 10
+	},
+	"footer": {
+		"text": "* Checkout projects on each on github",
+		"color": "#999999",
+		"fontSize": 10,
+		"font": "open sans",
+		"location": "bottom-center"
+	},
+	"size": {
+		"canvasWidth": 800,
+		"pieInnerRadius": "80%",
+		"pieOuterRadius": "80%"
+	},
+	"data": {
+		"sortOrder": "label-desc",
+		"content": [
+			{
+				"label": "NLP",
+				"value": 10,
+				"color": "#0fe7fb"
+			},
+			{
+				"label": "Computer Vision",
+				"value": 10,
+				"color": "#00b109"
+			},
+			{
+				"label": "Deep Learning",
+				"value": 20,
+				"color": "#f30000"
+			},
+			{
+				"label": "Artificial Intelligence ",
+				"value": 10,
+				"color": "#67f200"
+			},
+			{
+				"label": "Algorithms",
+				"value": 20,
+				"color": "#0600f3"
+			},
+			{
+				"label": "Machine Learning ",
+				"value": 10,
+				"color": "#14e4b4"
+			},
+			{
+				"label": "Data Mining",
+				"value": 10,
+				"color": "#8fe3fa"
+			},
+			{
+				"label": "Data Visualization",
+				"value": 10,
+				"color": "#ff7e00"
+			}
+		]
+	},
+	"labels": {
+		"outer": {
+			"format": "label",
+			"pieDistance": 20
+		},
+		"inner": {
+			"format": "none"
+		},
+		"mainLabel": {
+			"fontSize": 12
+		},
+		"percentage": {
+			"color": "#161414",
+			"fontSize": 12,
+			"decimalPlaces": 0
+		},
+		"value": {
+			"color": "#161515",
+			"fontSize": 12
+		},
+		"lines": {
+			"enabled": true,
+			"color": "#777777"
+		},
+		"truncation": {
+			"enabled": true
+		}
+	},
+	"tooltips": {
+		"enabled": true,
+		"type": "placeholder",
+		"string": "{label}: {percentage}%",
+		"styles": {
+			"fadeInSpeed": 392,
+			"backgroundOpacity": 0.7
+		}
+	},
+	"effects": {
+		"pullOutSegmentOnClick": {
+			"speed": 700,
+			"size": 20
+		}
+	},
+	"misc": {
+		"colors": {
+			"segmentStroke": "#000000"
+		}
+	},
+	"callbacks": {}
+});
+</script>
+    
 
 
 
