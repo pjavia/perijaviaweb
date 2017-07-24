@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Fourier Series</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+        });
+    </script>
+    <script type="text/javascript" src="MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+
+<body>
+
+<div class="jumbotron" >
+    <h1 class="title" align = "center" style = "color:#4C4E47"> Fourier Series
+    </h1>
+</div>
+<div>
+    <h2 style="text-indent:20mm; color:#4C4E47;"> Periodicity </h2>
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;"> 
+    The best way to get intuition of Fourier Series is to first understand periodicity. In simple words anything that repeats itself releaving the same    property in every cycle can be considered periodic. We are not going into mathematical intricacies right away. For now this definition gives us a broader view. Most of the time when the term periodic is encountered; the first thing that comes to most of the academicians' mind is a function like sine or cosine repeating itself after certain abscissa. 
+    $$f(x + T) = f(T) $$
+    </p>
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    However, periodicity is a more broader term. Most common are temporal periodicity and spatial periodicty. The best way to think of periodicty is in terms of rotating circle where a pattern starts from a point and again after certain time returns to the same spatial position. Let's say we want to analyze any periodic function which has some weird shape. We do it the same way we analyze substances using atoms. So what could be the atoms in our case that can collectively represent almost any periodic function.
+    </p>
+
+
+
+
+    <h2 style="text-indent:20mm; color:#4C4E47;">Looking for....</h2>
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;"> 
+    Let's think about what type of atoms or base functions we should look for? Let us list our desired charateristics of such base functions.
+    <ol style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    <li>We want to analyze and synthesize periodic functions. So, we need to choose some periodic functions as our atoms that are easy to undersyand and easy to produce</li>
+    <li>If we could approximate any periodic function in terms of some linear combination of base functions than it would make analysis of the target functions easy. For that we need to ensure our basis functions could be stacked such that each addition fills more information about the target function.</li>
+    <li>We want to avoid redundancy while choosing the base functions i.e one base function cannot describe other.</li>
+    <li>Those base functions should be powerful enough that any periodic function can be almost completely described by stacking them in some definite manner; similar to atoms in elements.</li>
+    <li>We are being greedy now but we also want differentiablity. So if the function that we are describing is differentiable then the described function using our base function should also be differentiable.</li>
+    </ol>
+    </p>
+
+
+
+
+
+    <h2 style="text-indent:20mm; color:#4C4E47;">Informed Search....</h2>
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    So let's get our hands dirty and get into mathematical concreteness.
+    </p> 
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    The first property guides us to choose periodic functions. There are many but the simplest ones are sine and cosine. Let's see does these two cater our needs or not.
+    $$sin(x) \hspace{20mm}  [0, 2\pi) $$
+    $$cos(x) \hspace{20mm}  [0, 2\pi) $$
+    </p>
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;"> 
+    The second property that is described above is linear independence. Why we need linear independence? Let's look into its definition.
+    $$ c_1x_1 + c_2x_2 = 0  $$
+    If above equation is true only when both $ c_1 $ and $ c_2 $ are zero simulataneously then they are called linearly independent.
+    Here $x$ can be vectors or functions. So what does this mean? In term of vectors it means that both vectors are not parallel. Hence, they can span more space. Hence adding a linearly independent vector to that sum gives us one more degree of freedom or it fills more dimensions. Yes sine and cosine are linearly independent. Let's prove that:
+    $$ c_1sin(x) + c_2cos(x) = 0 $$
+    $$ \dfrac{c_1}{\sqrt{c_1^2 + c_2^2 }} \ sin(x) + \dfrac{c_2}{\sqrt{c_1^2 + c_2^2 }} \ cos(x) = 0  $$
+    $$ cos(\alpha)sin(x) + sin(\alpha)cos(x) = 0 $$
+    $$ sin(\alpha + x) = 0 $$
+    Hence for  $ sin(\alpha + x) = 0$ in $[0,2\pi)$ both $\alpha$ and $x$ needs to be zero.
+    $$ \alpha = 0 $$
+    From this we can deduce that $c_1$ and $c_2$ needs to be zero simulataneously for the whole expression to be zero. Hence, it is proved that $sin(x)$ and $cos(x)$ are linearly independent on $[0,2\pi)$.
+    </p>
+
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    Now, we not only want linear independence we want to avoid redundancy that might come in linear independence. In simple words we don't want our any of the two basis functions to be able to describe each other.
+    In other words we want orthogonality. In terms of vectors $ a_i \hat{i} + b_j \hat{j} $. We know $ \hat{i}. \hat{j} = 0 $. Similarly, for functions we want this property. 
+    $$ \int_{-\infty}^{+\infty} f(x).g(x) dx = 0 $$
+    </p>
+
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    Let's see that do our basis functions do have that property or not. What do we know
+    $$ \int_{-\infty}^{+\infty} sin(mx)cos(nx) = 0  \hspace{5mm} when \hspace{2mm} m \neq n $$
+    </p>
+    
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    So, fromm above equation we can infer that our discrete multiple frequencies are redundant in the sense that any component in one frequency does not describe any component in other frequency.
+    </p>
+    
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    Lastly, we want completeness. So, basically we want to measure how accurately these atoms i.e sin(nw) and cos(nw) can describe a function. It turns out that error between the real function and the function aprroximation using these atoms goes to zero when n goes to inifinity. $$ error = | f(x) - (\sum_{n=0}^{\infty}a_nsin(nx)+b_ncos(nx))| --> 0 $$
+    </p>
+    
+    <p style="margin-left:20mm; margin-right:30mm; color:#4C4E47; font-size:5mm; font-weight:470; text-align:justify;">
+    Thus, we have a series that can approximate almost any periodic function. $$ f(x) = \sum_{n=0}^{\infty}a_nsin(nx)+b_ncos(nx) $$
+    </p>
+    
+        
+
+</div>
+
+
+
+    
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -8,8 +8,12 @@
     <title>Peri Javia</title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
 
 
 
@@ -54,19 +58,14 @@ background-size: cover;
     </style>
 -->
 
-<body> 
+<body id="main"> 
     
     
-    
-
-
-
-
 
 <nav class="navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="#main" id="smooth">
                 <span class="glyphicon glyphicon-home" style="color: white"></span>
             </a>
         </div>
@@ -91,12 +90,12 @@ background-size: cover;
             </a>
         </div>
         <div class="nav navbar-nav navbar-right">
-            <a class="navbar-brand" href="about.html" target="_blank">
+            <a class="navbar-brand" href="#pieChart" id="smooth">
                 <span style="font-weight:200 ; color: white">about.me</span>
             </a>
         </div>
         <div class="nav navbar-nav navbar-right">
-            <a class="navbar-brand" href="blog.html" target="_blank">
+            <a class="navbar-brand" href="#blog" id="smooth">
                 <span style="font-weight:200; color: white">Blog</span>
             </a>
         </div>
@@ -104,14 +103,7 @@ background-size: cover;
 </nav>
 
 
-<style>
-.navbar-default{
-    /*background-color: #1E8CBE;*/
-    background-color: #005684;
-    
-}
 
-</style>
 <!--
 <video autoplay loop muted id="bgvid" >
     <source src="typing.mp4" type="video/mp4">
@@ -122,8 +114,233 @@ background-size: cover;
 <p class="h4" style="position:absolute; left:160px; top: 260px;  color:#5E6357; font-size: 30px; font-family:Futura, Impact, Helvetica, Arial, sans-serif">School: Arizona State University</p>
 <!--color:#5E6357  left 160-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+
+<div id="pieChart" style="position:absolute; left:10px; top: 900px; padding: 70px 0px 0px 0px;"></div>
+<p class="h1" style="position:absolute; left:800px; top: 930px;  color:#5E6357; padding: 70px 0px 0px 0px;">Peri Javia</p>
+<div style="position:absolute; left:800px; top: 990px;  color:#5E6357; width: 300px; text-align: justify; font-size: 18px; padding: 70px 0px 0px 0px;">I play piano, flute, draw potraits and also feel that mathematical equations are artistic strokes on canvas of reality. I want to understand everything with utmost mathematical concreteness and correctness.</div>
+    
+</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
+<script src="d3pie.min.js"></script>
+<script>
+var pie = new d3pie("pieChart", {
+    "header": {
+        "title": {
+            "text": "Areas of Interests",
+            "fontSize": 22,
+            "font": "courier"
+        },
+        "subtitle": {
+            "text": "ranks",
+            "color": "#999999",
+            "fontSize": 10,
+            "font": "courier"
+        },
+        "location": "pie-center",
+        "titleSubtitlePadding": 10
+    },
+    "footer": {
+        "text": "* Checkout projects on each on github",
+        "color": "#999999",
+        "fontSize": 10,
+        "font": "open sans",
+        "location": "bottom-center"
+    },
+    "size": {
+        "canvasWidth": 800,
+        "pieInnerRadius": "80%",
+        "pieOuterRadius": "80%"
+    },
+    "data": {
+        "sortOrder": "label-desc",
+        "content": [
+            {
+                "label": "NLP",
+                "value": 10,
+                "color": "#0fe7fb"
+            },
+            {
+                "label": "Computer Vision",
+                "value": 10,
+                "color": "#00b109"
+            },
+            {
+                "label": "Deep Learning",
+                "value": 20,
+                "color": "#f30000"
+            },
+            {
+                "label": "Artificial Intelligence ",
+                "value": 10,
+                "color": "#67f200"
+            },
+            {
+                "label": "Algorithms",
+                "value": 20,
+                "color": "#0600f3"
+            },
+            {
+                "label": "Machine Learning ",
+                "value": 10,
+                "color": "#14e4b4"
+            },
+            {
+                "label": "Data Mining",
+                "value": 10,
+                "color": "#8fe3fa"
+            },
+            {
+                "label": "Data Visualization",
+                "value": 10,
+                "color": "#ff7e00"
+            }
+        ]
+    },
+    "labels": {
+        "outer": {
+            "format": "label",
+            "pieDistance": 20
+        },
+        "inner": {
+            "format": "none"
+        },
+        "mainLabel": {
+            "fontSize": 12
+        },
+        "percentage": {
+            "color": "#161414",
+            "fontSize": 12,
+            "decimalPlaces": 0
+        },
+        "value": {
+            "color": "#161515",
+            "fontSize": 12
+        },
+        "lines": {
+            "enabled": true,
+            "color": "#777777"
+        },
+        "truncation": {
+            "enabled": true
+        }
+    },
+    "tooltips": {
+        "enabled": true,
+        "type": "placeholder",
+        "string": "{label}: {percentage}%",
+        "styles": {
+            "fadeInSpeed": 392,
+            "backgroundOpacity": 0.7
+        }
+    },
+    "effects": {
+        "pullOutSegmentOnClick": {
+            "speed": 700,
+            "size": 20
+        }
+    },
+    "misc": {
+        "colors": {
+            "segmentStroke": "#000000"
+        }
+    },
+    "callbacks": {}
+});
+</script>
+
+
+<div id="blog" style="position:absolute; left:55px; top: 1600px; padding: 10px 0px 0px 0px; width: 100%"></div>
+<div class="container" style="position:absolute; left:55px; top: 1700px">
+    <div>
+        <div>
+        <a class="navbar-brand" href="https://github.com/pjavia/Natural-Language-Understanding/tree/master/word2vec" target="_blank">
+            <span><img src="http://picsoverflow.com/wp-content/uploads/2016/04/travel-photography-tumblr.jpg" class="img-thumbnail" alt="Cinque Terre" width="128" height="128"></span>
+        </a>
+        </div>
+        <div style="position:absolute; left:180px; top:0px">
+            <a class="navbar-brand" href="https://github.com/pjavia/Natural-Language-Understanding/tree/master/word2vec" target="_blank">
+                <span><h2 style="color:#4C4E47">word2vec</h2></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container" style="position:absolute; left:55px; top: 1850px">
+    <div>
+        <div>
+        <a class="navbar-brand" href="coffee.html" target="_blank">
+            <span><img src="https://cdn.pixabay.com/photo/2016/10/25/18/05/coffee-1769587_960_720.jpg" class="img-thumbnail" alt="Cinque Terre" width="128" height="128"></span>
+        </a>
+        </div>
+        <div style="position:absolute; left:180px; top:0px">
+            <a class="navbar-brand" href="coffee.html" target="_blank">
+                <span><h2 style="color:#4C4E47">Coffee</h2></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container" style="position:absolute; left:55px; top: 2000px;">
+    <div>
+        <div>
+        <a class="navbar-brand" href="https://github.com/pjavia/GAN/tree/master/gan" target="_blank">
+            <span><img src="https://images2.pixlis.com/background-image-checkers-chequered-checkered-squares-seamless-tileable-dark-turquoise-zeus-236thm.png" class="img-thumbnail" alt="Cinque Terre" width="128" height="128"></span>
+        </a>
+        </div>
+        <div style="position:absolute; left:180px; top:0px">
+            <a class="navbar-brand" href="https://github.com/pjavia/GAN/tree/master/gan" target="_blank">
+                <span><h2 style="color:#4C4E47">General Adversarial Networks (GAN)</h2></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container" style="position:absolute; left:55px; top: 2150px;">
+    <div>
+        <div>
+        <a class="navbar-brand" href="https://github.com/pjavia/GAN/tree/master/dcgan" target="_blank">
+            <span><img src="https://upload.wikimedia.org/wikipedia/en/2/24/Lenna.png" class="img-thumbnail" alt="Cinque Terre" width="128" height="128"></span>
+        </a>
+        </div>
+        <div style="position:absolute; left:180px; top:0px">
+            <a class="navbar-brand" href="https://github.com/pjavia/GAN/tree/master/dcgan" target="_blank">
+                <span><h2 style="color:#4C4E47">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks
+
+</h2></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container" style="position:absolute; left:55px; top: 2350px; padding: 300px 0px 0px 0px; white-space: 100px"></div>
+
+
+
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(document).on('click', '#smooth', function(event){
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+});
+</script>
+<style>
+.navbar-default{
+    /*background-color: #1E8CBE;*/
+    background-color: #005684;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+}
+</style>
 </body>
 </html>
